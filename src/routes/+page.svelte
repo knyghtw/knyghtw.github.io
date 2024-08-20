@@ -1,2 +1,7 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<svelte:head>
+	<title>Knyghtwebsite</title>
+	<meta name="description" content="knyghtw personal website" />
+</svelte:head>
+
+<h1>knyghtw</h1>
+<p>in development</p>
