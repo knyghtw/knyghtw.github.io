@@ -1,8 +1,7 @@
 <script>
 	import { Card, Modal, Button } from 'flowbite-svelte';
 	import { GithubSolid, ArrowUpOutline } from 'flowbite-svelte-icons';
-	import { base } from '$app/paths';
-	import '../app.css';
+	import { base } from '$app/paths';	
 	import waif from '$lib/assets/waif.png';
 	import waif2 from '$lib/assets/waif2.png';
 	import kc from '$lib/assets/kawancurhat.png';
