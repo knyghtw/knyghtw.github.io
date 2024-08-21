@@ -1,11 +1,38 @@
 <script>
-	import { Card } from 'flowbite-svelte';
+	import { Card, Modal, Button } from 'flowbite-svelte';
+	import { GithubSolid, ArrowUpOutline } from 'flowbite-svelte-icons';
 	import waif from '$lib/assets/waif.png';
 	import waif2 from '$lib/assets/waif2.png';
-	import kc from '$lib/assets/kawancurhat.png'
-	import guthib from'$lib/assets/github-mark.svg';
+	import kc from '$lib/assets/kawancurhat.png';
+	import guthib from '$lib/assets/github-mark.svg';
 
-	let imgSrc = waif;	
+	let imgSrc = waif;
+	let showModal1 = false;
+	let showModal2 = false;
+	let showModal3 = false;
+	const projectData = [
+		[
+			'PharmAssist',
+			'PharmAssist adalah aplikasi manajemen apotek yang dapat membantu apoteker mengelola stok obat, penjualan, dan laporan dengan mudah dan efisien.',
+			'Aplikasi ini dirancang menggunakan bahasa C# dan .NET Framework.',
+			'https://github.com/knyghtw/PharmAssist',
+			guthib
+		],
+		[
+			'KawanCurhat',
+			'Our goal is to develop a mental health app to help tackle the global problem of mental health issues.',
+			'Recent trends in Indonesia, such as the rising rates of student suicides, highlight the importance of providing individuals with the tools and knowledge they need to lead healthier lives.',
+			'https://github.com/KawanCurhat',
+			kc
+		],
+		[
+			'Misteri Prasasti',
+			'A minisweeper inspired game',
+			'Made with Flutter Flame',
+			'https://github.com/knyghtw/MisteriPrasasti',
+			guthib
+		]
+	];
 
 	// @ts-ignore
 	function handleHover(event) {
@@ -18,10 +45,52 @@
 	<meta name="description" content="knyghtw personal website" />
 </svelte:head>
 
+<Modal title={projectData[0][0]} bind:open={showModal1} autoclose outsideclose>
+	<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+		{projectData[0][1]}
+	</p>
+	<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+		{projectData[0][2]}
+	</p>
+	<svelte:fragment slot="footer">
+		<Button color="dark" href={projectData[0][3]}
+			><GithubSolid class="w-5 h-5 me-2" />View Repository</Button
+		>
+	</svelte:fragment>
+</Modal>
+
+<Modal title={projectData[1][0]} bind:open={showModal2} autoclose outsideclose>
+	<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+		{projectData[1][1]}
+	</p>
+	<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+		{projectData[1][2]}
+	</p>
+	<svelte:fragment slot="footer">
+		<Button color="dark" href={projectData[1][3]}
+			><GithubSolid class="w-5 h-5 me-2" />View Repository</Button
+		>
+	</svelte:fragment>
+</Modal>
+
+<Modal title={projectData[2][0]} bind:open={showModal3} autoclose outsideclose>
+	<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+		{projectData[2][1]}
+	</p>
+	<p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+		{projectData[2][2]}
+	</p>
+	<svelte:fragment slot="footer">
+		<Button color="dark" href={projectData[2][3]}
+			><GithubSolid class="w-5 h-5 me-2" />View Repository</Button
+		>
+	</svelte:fragment>
+</Modal>
+
 <div
 	class="flex sticky top-0 pt-5 pb-5 -mb-10 justify-between text-xl bg-gradient-to-b from-black/5 backdrop-blur z-50"
 >
-	<a class="ml-44 font-bold" href="/#">KNYGHTW</a>
+	<a class="ml-44 font-bold" href="/">KNYGHTW</a>
 	<div class="flex gap-x-16 mr-44">
 		<a href="#about">About</a>
 		<a href="#projects">Project</a>
@@ -36,12 +105,12 @@
 		on:mouseenter={handleHover}
 		on:mouseleave={handleHover}
 		class="absolute right-0 mr-48 mt-20 transition brightness-[.25] hover:brightness-100"
-	/>	
+	/>
 	<div class="min-h-screen flex flex-col justify-center pb-32">
 		<div class="text-8xl font-medium absolute">
-			<p>Hello!</p>
-			<p>I'm Knyghtw</p>
-			<p>Front End Developer</p>
+			<p class="transition duration-300 hover:font-bold w-fit">Hello!</p>
+			<p class="transition duration-300 hover:font-bold w-fit">I'm Knyghtw</p>
+			<p class="transition duration-300 hover:font-bold w-fit">Front End Developer</p>
 		</div>
 	</div>
 
@@ -64,19 +133,31 @@
 		<p class="font-bold text-4xl pb-12">Project</p>
 
 		<div class="flex gap-x-4 mt-4 justify-center">
-			<Card img={guthib} class="h-fit">
+			<Card
+				img={projectData[0][4]}
+				class="h-fit hover:cursor-pointer"
+				on:click={() => (showModal1 = true)}
+			>
 				<h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-					PharmAssist
+					{projectData[0][0]}
 				</h5>
 			</Card>
-			<Card img={kc} class="mt-16 h-fit">
+			<Card
+				img={projectData[1][4]}
+				class="mt-16 h-fit hover:cursor-pointer"
+				on:click={() => (showModal2 = true)}
+			>
 				<h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-					KawanCurhat
+					{projectData[1][0]}
 				</h5>
 			</Card>
-			<Card img={guthib} class="mt-32">
+			<Card
+				img={projectData[2][4]}
+				class="mt-32 h-fit hover:cursor-pointer"
+				on:click={() => (showModal3 = true)}
+			>
 				<h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-					Misteri Prasasti
+					{projectData[2][0]}
 				</h5>
 			</Card>
 		</div>
@@ -96,6 +177,11 @@
 			<a href="https://www.instagram.com/bagas.satryaa/">Instagram</a>
 		</div>
 	</div>
+</div>
+<div class="relative w-full h-full">
+	<Button class="!p-2 rounded-full absolute right-6 bottom-4" color="dark" href="/"
+		><ArrowUpOutline class="w-10 h-10" /></Button
+	>
 </div>
 
 <style lang="postcss">
