@@ -1,6 +1,7 @@
 <script>
 	import { Card, Modal, Button } from 'flowbite-svelte';
 	import { GithubSolid, ArrowUpOutline } from 'flowbite-svelte-icons';
+	import { base } from '$app/paths';
 	import waif from '$lib/assets/waif.png';
 	import waif2 from '$lib/assets/waif2.png';
 	import kc from '$lib/assets/kawancurhat.png';
@@ -90,11 +91,11 @@
 <div
 	class="flex sticky top-0 pt-5 pb-5 -mb-10 justify-between text-xl bg-gradient-to-b from-black/5 backdrop-blur z-50"
 >
-	<a class="ml-44 font-bold" href="/">KNYGHTW</a>
+	<a class="ml-44 font-bold" href="{base}/">KNYGHTW</a>
 	<div class="flex gap-x-16 mr-44">
-		<a href="#about">About</a>
-		<a href="#projects">Project</a>
-		<a href="#contact">Contact</a>
+		<a href="{base}/#about">About</a>
+		<a href="{base}/#projects">Project</a>
+		<a href="{base}/#contact">Contact</a>
 	</div>
 </div>
 
