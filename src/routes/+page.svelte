@@ -2,6 +2,7 @@
 	import { Card, Modal, Button } from 'flowbite-svelte';
 	import { GithubSolid, ArrowUpOutline } from 'flowbite-svelte-icons';
 	import { base } from '$app/paths';	
+	import "../app.css";
 	import waif from '$lib/assets/waif.png';
 	import waif2 from '$lib/assets/waif2.png';
 	import kc from '$lib/assets/kawancurhat.png';
@@ -180,7 +181,7 @@
 	</div>
 </div>
 <div class="relative w-full h-full">
-	<Button class="!p-2 rounded-full absolute right-6 bottom-4" color="dark" href="/"
+	<Button class="!p-2 rounded-full absolute right-6 bottom-4" color="dark" href="{base}/"
 		><ArrowUpOutline class="w-10 h-10" /></Button
 	>
 </div>
